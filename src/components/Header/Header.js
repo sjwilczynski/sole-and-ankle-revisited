@@ -1,18 +1,16 @@
-import React from 'react';
-import styled from 'styled-components/macro';
+import React from "react";
+import styled from "styled-components/macro";
 
-import { COLORS, WEIGHTS } from '../../constants';
-import Logo from '../Logo';
-import SuperHeader from '../SuperHeader';
-import MobileMenu from '../MobileMenu';
+import { COLORS, WEIGHTS } from "../../constants";
+import Logo from "../Logo";
+import SuperHeader from "../SuperHeader";
+import MobileMenu from "../MobileMenu";
+import UnstyledButton from "../UnstyledButton";
+import Icon from "../Icon";
+import HeaderButtons from "../HeaderButtons";
 
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
-
-  // For our mobile hamburger menu, we'll want to use a button
-  // with an onClick handler, something like this:
-  //
-  // <button onClick={() => setShowMobileMenu(true)}>
 
   return (
     <header>
@@ -21,15 +19,20 @@ const Header = () => {
         <Side>
           <Logo />
         </Side>
-        <Nav>
+        <LaptopNav>
           <NavLink href="/sale">Sale</NavLink>
           <NavLink href="/new">New&nbsp;Releases</NavLink>
           <NavLink href="/men">Men</NavLink>
           <NavLink href="/women">Women</NavLink>
           <NavLink href="/kids">Kids</NavLink>
           <NavLink href="/collections">Collections</NavLink>
-        </Nav>
+        </LaptopNav>
         <Side />
+        <MobileHeaderButtons>
+          <UnstyledButton onClick={() => setShowMobileMenu(true)}>
+            <Icon id="menu" strokeWidth={1} />
+          </UnstyledButton>
+        </MobileHeaderButtons>
       </MainHeader>
 
       <MobileMenu
@@ -46,12 +49,31 @@ const MainHeader = styled.div`
   padding: 18px 32px;
   height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
+
+  @media ${(p) => p.theme.queries.phoneAndSmaller} {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 `;
 
 const Nav = styled.nav`
   display: flex;
   gap: 48px;
   margin: 0px 48px;
+`;
+
+const LaptopNav = styled(Nav)`
+  @media ${(p) => p.theme.queries.tabletAndSmaller} {
+    display: none;
+  }
+`;
+
+const MobileHeaderButtons = styled(HeaderButtons)`
+  display: none;
+
+  @media ${(p) => p.theme.queries.tabletAndSmaller} {
+    display: flex;
+  }
 `;
 
 const Side = styled.div`
