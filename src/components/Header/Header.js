@@ -16,26 +16,30 @@ const Header = () => {
   return (
     <header>
       <SuperHeader />
-      <MainHeader>
-        <Side>
-          <Logo />
-        </Side>
-        <LaptopNav>
-          <NavLink href="/sale">Sale</NavLink>
-          <NavLink href="/new">New&nbsp;Releases</NavLink>
-          <NavLink href="/men">Men</NavLink>
-          <NavLink href="/women">Women</NavLink>
-          <NavLink href="/kids">Kids</NavLink>
-          <NavLink href="/collections">Collections</NavLink>
-        </LaptopNav>
-        <Side />
-        <MobileHeaderButtons>
-          <UnstyledButton onClick={() => setShowMobileMenu(true)}>
-            <Icon id="menu" strokeWidth={1} />
-            <VisuallyHidden>Open menu</VisuallyHidden>
-          </UnstyledButton>
-        </MobileHeaderButtons>
-      </MainHeader>
+      <ScrollContainer>
+        <MainHeader>
+          <Side>
+            <Logo />
+          </Side>
+          <LaptopNav>
+            <NavLink href="/sale">Sale</NavLink>
+            <NavLink href="/new">New&nbsp;Releases</NavLink>
+            <NavLink href="/men">Men</NavLink>
+            <NavLink href="/women">Women</NavLink>
+            <NavLink href="/kids">Kids</NavLink>
+            <NavLink href="/collections">
+              CollectionsCollectionsCOllections
+            </NavLink>
+          </LaptopNav>
+          <Side />
+          <MobileHeaderButtons>
+            <UnstyledButton onClick={() => setShowMobileMenu(true)}>
+              <Icon id="menu" strokeWidth={1} />
+              <VisuallyHidden>Open menu</VisuallyHidden>
+            </UnstyledButton>
+          </MobileHeaderButtons>
+        </MainHeader>
+      </ScrollContainer>
 
       <MobileMenu
         isOpen={showMobileMenu}
@@ -64,9 +68,13 @@ const MainHeader = styled.div`
   }
 `;
 
+const ScrollContainer = styled.div`
+  overflow-x: auto;
+`;
+
 const Nav = styled.nav`
   display: flex;
-  gap: 48px;
+  gap: clamp(1rem, 5.5vw - 2rem, 3rem);
   margin: 0px 48px;
 `;
 
