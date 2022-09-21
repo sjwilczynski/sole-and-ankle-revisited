@@ -50,6 +50,10 @@ const MainHeader = styled.div`
   height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
 
+  @media ${(p) => p.theme.queries.tabletAndSmaller} {
+    border-top: 4px solid ${COLORS.gray[900]};
+  }
+
   @media ${(p) => p.theme.queries.phoneAndSmaller} {
     padding-left: 16px;
     padding-right: 16px;
