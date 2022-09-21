@@ -15,7 +15,7 @@ const ShoeIndex = ({ sortId, setSortId }) => {
       <MainColumn>
         <Header>
           <Title>Running</Title>
-          <PhoneOnly>
+          <SelectWrapper>
             <Select
               label="Sort"
               value={sortId}
@@ -24,7 +24,7 @@ const ShoeIndex = ({ sortId, setSortId }) => {
               <option value="newest">Newest Releases</option>
               <option value="price">Price</option>
             </Select>
-          </PhoneOnly>
+          </SelectWrapper>
         </Header>
         <Spacer size={32} />
         <ShoeGrid />
@@ -72,6 +72,10 @@ const Header = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+
+  @media ${(p) => p.theme.queries.tabletAndSmaller} {
+    margin-top: -12px;
+  }
 `;
 
 const Title = styled.h2`
@@ -79,7 +83,11 @@ const Title = styled.h2`
   font-weight: ${WEIGHTS.medium};
 `;
 
-const PhoneOnly = styled.div`
+const SelectWrapper = styled.div`
+  @media ${(p) => p.theme.queries.tabletAndSmaller} {
+    transform: translateY(-8px);
+  }
+
   @media ${(p) => p.theme.queries.phoneAndSmaller} {
     display: none;
   }
