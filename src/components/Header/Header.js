@@ -8,6 +8,7 @@ import MobileMenu from "../MobileMenu";
 import UnstyledButton from "../UnstyledButton";
 import Icon from "../Icon";
 import HeaderButtons from "../HeaderButtons";
+import VisuallyHidden from "../VisuallyHidden";
 
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
@@ -31,6 +32,7 @@ const Header = () => {
         <MobileHeaderButtons>
           <UnstyledButton onClick={() => setShowMobileMenu(true)}>
             <Icon id="menu" strokeWidth={1} />
+            <VisuallyHidden>Open menu</VisuallyHidden>
           </UnstyledButton>
         </MobileHeaderButtons>
       </MainHeader>
@@ -52,6 +54,8 @@ const MainHeader = styled.div`
 
   @media ${(p) => p.theme.queries.tabletAndSmaller} {
     border-top: 4px solid ${COLORS.gray[900]};
+    justify-content: space-between;
+    align-items: center;
   }
 
   @media ${(p) => p.theme.queries.phoneAndSmaller} {
@@ -82,6 +86,10 @@ const MobileHeaderButtons = styled(HeaderButtons)`
 
 const Side = styled.div`
   flex: 1;
+
+  @media ${(p) => p.theme.queries.tabletAndSmaller} {
+    flex: revert;
+  }
 `;
 
 const NavLink = styled.a`
