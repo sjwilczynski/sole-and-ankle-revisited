@@ -16,30 +16,28 @@ const Header = () => {
   return (
     <header>
       <SuperHeader />
-      <ScrollContainer>
-        <MainHeader>
-          <Side>
-            <Logo />
-          </Side>
-          <LaptopNav>
-            <NavLink href="/sale">Sale</NavLink>
-            <NavLink href="/new">New&nbsp;Releases</NavLink>
-            <NavLink href="/men">Men</NavLink>
-            <NavLink href="/women">Women</NavLink>
-            <NavLink href="/kids">Kids</NavLink>
-            <NavLink href="/collections">
-              CollectionsCollectionsCOllections
-            </NavLink>
-          </LaptopNav>
-          <Side />
-          <MobileHeaderButtons>
-            <UnstyledButton onClick={() => setShowMobileMenu(true)}>
-              <Icon id="menu" strokeWidth={1} />
-              <VisuallyHidden>Open menu</VisuallyHidden>
-            </UnstyledButton>
-          </MobileHeaderButtons>
-        </MainHeader>
-      </ScrollContainer>
+      <MainHeader>
+        <Side>
+          <Logo />
+        </Side>
+        <LaptopNav>
+          <NavLink href="/sale">Sale</NavLink>
+          <NavLink href="/new">New&nbsp;Releases</NavLink>
+          <NavLink href="/men">Men</NavLink>
+          <NavLink href="/women">Women</NavLink>
+          <NavLink href="/kids">Kids</NavLink>
+          <NavLink href="/collections">
+            CollectionsCollectionsCOllections
+          </NavLink>
+        </LaptopNav>
+        <Side />
+        <MobileHeaderButtons>
+          <UnstyledButton onClick={() => setShowMobileMenu(true)}>
+            <Icon id="menu" strokeWidth={1} />
+            <VisuallyHidden>Open menu</VisuallyHidden>
+          </UnstyledButton>
+        </MobileHeaderButtons>
+      </MainHeader>
 
       <MobileMenu
         isOpen={showMobileMenu}
@@ -53,8 +51,8 @@ const MainHeader = styled.div`
   display: flex;
   align-items: baseline;
   padding: 18px 32px;
-  height: 72px;
   border-bottom: 1px solid var(--color-gray-300);
+  overflow: auto;
 
   @media ${(p) => p.theme.queries.tabletAndSmaller} {
     border-top: 4px solid var(--color-gray-900);
@@ -66,10 +64,6 @@ const MainHeader = styled.div`
     padding-left: 16px;
     padding-right: 16px;
   }
-`;
-
-const ScrollContainer = styled.div`
-  overflow-x: auto;
 `;
 
 const Nav = styled.nav`
