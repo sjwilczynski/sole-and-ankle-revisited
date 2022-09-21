@@ -8,7 +8,7 @@ import {
 import UnstyledButton from "../UnstyledButton";
 import Icon from "../Icon";
 import VisuallyHidden from "../VisuallyHidden";
-import { COLORS, WEIGHTS } from "../../constants";
+import { WEIGHTS } from "../../constants";
 
 const MobileMenu = ({ isOpen, onDismiss }) => {
   return (
@@ -79,13 +79,13 @@ const Nav = styled.nav`
 const NavLink = styled.a`
   font-size: ${18 / 16}rem;
   font-weight: ${WEIGHTS.medium};
-  color: ${COLORS["gray"][900]};
+  color: var(--color-gray-900);
   text-decoration: none;
   text-transform: uppercase;
 `;
 const SecondaryLink = styled.a`
   font-size: ${14 / 16}rem;
-  color: ${COLORS["gray"][700]};
+  color: var(--color-gray-700);
   text-decoration: none;
 `;
 const Footer = styled.footer`
