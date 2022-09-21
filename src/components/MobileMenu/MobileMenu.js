@@ -11,12 +11,8 @@ import VisuallyHidden from "../VisuallyHidden";
 import { COLORS, WEIGHTS } from "../../constants";
 
 const MobileMenu = ({ isOpen, onDismiss }) => {
-  if (!isOpen) {
-    return null;
-  }
-
   return (
-    <DialogOverlay>
+    <DialogOverlay isOpen={isOpen}>
       <DialogContent>
         <CloseButton onClick={onDismiss}>
           <Icon id="close" strokeWidth={1} />
@@ -65,8 +61,9 @@ const DialogContent = styled(DialogContentBase)`
 
 const CloseButton = styled(UnstyledButton)`
   position: absolute;
-  top: 16px;
-  right: 16px;
+  top: 10px;
+  right: 0;
+  padding: 16px;
 `;
 
 const Side = styled.div`
